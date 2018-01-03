@@ -88,16 +88,18 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.itextpdf</groupId>
-			<artifactId>itextpdf</artifactId>
-			<version>5.5.0</version>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports-metadata</artifactId>
+			<version>6.5.1-SNAPSHOT</version>
 			<scope>compile</scope>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>com.itextpdf</groupId>
-			<artifactId>itext-pdfa</artifactId>
-			<version>5.5.0</version>
-			<scope>compile</scope>
+			<groupId>com.adobe.xmp</groupId>
+			<artifactId>xmpcore</artifactId>
+			<version>5.1.1</version>
+ 			<scope>compile</scope>
+ 			<optional>true</optional>
 		</dependency>
 	</dependencies>
 </project>
