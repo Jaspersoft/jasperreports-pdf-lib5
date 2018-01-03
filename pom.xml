@@ -33,16 +33,6 @@
 		</repository>
 	</repositories>
 	<build>
-		<sourceDirectory>src</sourceDirectory>
-		<resources>
-			<resource>
-				<directory>src</directory>
-				<includes>
-					<include>**/jasperreports_extension.properties</include>
-					<include>**/*.xml</include>
-				</includes>
-			</resource>
-		</resources>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -50,10 +40,6 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
-					<excludes>
-						<exclude>**/*App.java</exclude>
-						<exclude>**/*Customizer.java</exclude>
-					</excludes>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -99,6 +85,18 @@
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports</artifactId>
 			<version>6.5.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itextpdf</artifactId>
+			<version>5.5.0</version>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itext-pdfa</artifactId>
+			<version>5.5.0</version>
 			<scope>compile</scope>
 		</dependency>
 	</dependencies>
