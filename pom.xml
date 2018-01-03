@@ -1,0 +1,105 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.jaspersoft.jasperreports</groupId>
+	<artifactId>jasperreports-modern-pdf</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>JasperReports Modern PDF Exporter</name>
+	<url>https://github.com/Jaspersoft/jasperreports-modern-pdf</url>
+	<description>JasperReports Modern PDF Exporter</description>
+	<licenses>
+		<license>
+			<name>GNU Affero General Public License</name>
+			<url>https://www.gnu.org/licenses/agpl.txt</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+	<scm>
+		<connection>scm:git:https://github.com/Jaspersoft/jasperreports-modern-pdf.git</connection>
+		<tag>1-0-0</tag>
+		<url>https://github.com/Jaspersoft/jasperreports-modern-pdf</url>
+	</scm>
+	<repositories>
+		<repository>
+			<id>jr-ce-releases</id>
+			<name>JasperReports CE Releases</name>
+			<url>http://jaspersoft.jfrog.io/jaspersoft/jr-ce-releases</url>
+		</repository>
+		<repository>
+			<id>jr-ce-snapshots</id>
+			<name>JasperReports CE Snapshots</name>
+			<url>http://jaspersoft.jfrog.io/jaspersoft/jr-ce-snapshots</url>
+		</repository>
+	</repositories>
+	<build>
+		<sourceDirectory>src</sourceDirectory>
+		<resources>
+			<resource>
+				<directory>src</directory>
+				<includes>
+					<include>**/jasperreports_extension.properties</include>
+					<include>**/*.xml</include>
+				</includes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+					<excludes>
+						<exclude>**/*App.java</exclude>
+						<exclude>**/*Customizer.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+					<archive>
+						<manifestEntries>
+							<Built-By>Jaspersoft</Built-By>
+						</manifestEntries>
+						<manifestSections>
+							<manifestSection>
+								<name>com/jaspersoft/jasperreports/pdf/</name>
+								<manifestEntries>
+									<Specification-Title>JasperReports Library Modern PDF Exporter</Specification-Title>
+									<Specification-Version>${pom.version}</Specification-Version>
+									<Specification-Vendor>Jaspersoft</Specification-Vendor>
+									<Implementation-Title>com.jaspersoft.jasperreports.pdf</Implementation-Title>
+									<Implementation-Version>${pom.version}</Implementation-Version>
+									<Implementation-Vendor>Jaspersoft</Implementation-Vendor>
+								</manifestEntries>
+							</manifestSection>
+						</manifestSections>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<distributionManagement>
+		<repository>
+			<id>jr-ce-releases</id>
+			<name>JasperReports CE Releases</name>
+			<url>http://jaspersoft.jfrog.io/jaspersoft/jr-ce-releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>jr-ce-snapshots</id>
+			<name>JasperReports CE Snapshots</name>
+			<url>http://jaspersoft.jfrog.io/jaspersoft/jr-ce-snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
+	<dependencies>
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>6.5.1-SNAPSHOT</version>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+</project>
