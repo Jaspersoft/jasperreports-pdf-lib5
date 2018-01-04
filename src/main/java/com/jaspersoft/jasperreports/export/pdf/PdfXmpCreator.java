@@ -29,13 +29,13 @@ import com.adobe.xmp.XMPMeta;
 import com.adobe.xmp.XMPMetaFactory;
 import com.adobe.xmp.options.PropertyOptions;
 import com.adobe.xmp.options.SerializeOptions;
-import com.lowagie.text.Document;
-import com.lowagie.text.pdf.PdfDate;
-import com.lowagie.text.pdf.PdfDictionary;
-import com.lowagie.text.pdf.PdfName;
-import com.lowagie.text.pdf.PdfString;
-import com.lowagie.text.pdf.PdfWriter;
-import com.lowagie.text.xml.xmp.DublinCoreSchema;
+import com.itextpdf.text.Version;
+import com.itextpdf.text.pdf.PdfDate;
+import com.itextpdf.text.pdf.PdfDictionary;
+import com.itextpdf.text.pdf.PdfName;
+import com.itextpdf.text.pdf.PdfString;
+import com.itextpdf.text.pdf.PdfWriter;
+import com.itextpdf.text.xml.xmp.DublinCoreSchema;
 
 import net.sf.jasperreports.engine.JRRuntimeException;
 
@@ -122,7 +122,7 @@ class XmpWriter
 			xmp.setObjectName("");
 
 			xmp.setProperty(XMPConst.NS_DC, DublinCoreSchema.FORMAT, FORMAT_PDF);
-			xmp.setProperty(XMPConst.NS_PDF, PDF_PRODUCER, Document.getVersion());
+			xmp.setProperty(XMPConst.NS_PDF, PDF_PRODUCER, Version.getInstance().getVersion());
 
 			if (pdfWriter.getPDFXConformance() == PdfWriter.PDFA1A)
 			{
