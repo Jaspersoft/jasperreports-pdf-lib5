@@ -2,11 +2,11 @@
 		xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.jaspersoft.jasperreports</groupId>
-	<artifactId>jasperreports-modern-pdf</artifactId>
+	<artifactId>jasperreports-pdf-lib5</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<name>JasperReports PDF Exporter Lib Five</name>
-	<url>https://github.com/Jaspersoft/jasperreports-modern-pdf</url>
+	<url>https://github.com/Jaspersoft/jasperreports-pdf-lib5</url>
 	<description>JasperReports PDF Exporter Lib Five</description>
 	<licenses>
 		<license>
@@ -16,9 +16,9 @@
 		</license>
 	</licenses>
 	<scm>
-		<connection>scm:git:https://github.com/Jaspersoft/jasperreports-modern-pdf.git</connection>
+		<connection>scm:git:https://github.com/Jaspersoft/jasperreports-pdf-lib5.git</connection>
 		<tag>1-0-0</tag>
-		<url>https://github.com/Jaspersoft/jasperreports-modern-pdf</url>
+		<url>https://github.com/Jaspersoft/jasperreports-pdf-lib5</url>
 	</scm>
 	<repositories>
 		<repository>
