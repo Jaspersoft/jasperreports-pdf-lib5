@@ -38,6 +38,7 @@ import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.text.xml.xmp.DublinCoreSchema;
 
 import net.sf.jasperreports.engine.JRRuntimeException;
+import net.sf.jasperreports.export.type.PdfaConformanceEnum;
 
 /**
  * @author Lucian Chirita (lucianc@users.sourceforge.net)
@@ -72,9 +73,9 @@ public class PdfXmpCreator
 		return XMP_LIBRARY;
 	}
 
-	public static byte[] createXmpMetadata(PdfWriter pdfWriter)
+	public static byte[] createXmpMetadata(PdfWriter pdfWriter, PdfaConformanceEnum pdfaConformance)
 	{
-		XmpWriter writer = new XmpWriter(pdfWriter);
+		XmpWriter writer = new XmpWriter(pdfWriter, pdfaConformance);
 		return writer.createXmpMetadata();
 	}
 
@@ -105,13 +106,13 @@ class XmpWriter
 
 	private static final String XMP_CREATOR_TOOL = "CreatorTool";
 	
-	private final PdfWriter pdfWriter;
 	private final PdfDictionary info;
+	private final PdfaConformanceEnum pdfaConformance;
 	
-	XmpWriter(PdfWriter pdfWriter)
+	XmpWriter(PdfWriter pdfWriter, PdfaConformanceEnum pdfaConformance)
 	{
-		this.pdfWriter = pdfWriter;
 		this.info = pdfWriter.getInfo();
+		this.pdfaConformance = pdfaConformance;
 	}
 	
 	byte[] createXmpMetadata()
@@ -124,12 +125,12 @@ class XmpWriter
 			xmp.setProperty(XMPConst.NS_DC, DublinCoreSchema.FORMAT, FORMAT_PDF);
 			xmp.setProperty(XMPConst.NS_PDF, PDF_PRODUCER, Version.getInstance().getVersion());
 
-			if (pdfWriter.getPDFXConformance() == PdfWriter.PDFA1A)
+			if (pdfaConformance == PdfaConformanceEnum.PDFA_1A)
 			{
 				xmp.setProperty(XMPConst.NS_PDFA_ID, PDFA_PART, PDFA_PART_1);
 				xmp.setProperty(XMPConst.NS_PDFA_ID, PDFA_CONFORMANCE, PDFA_CONFORMANCE_A);
 			}
-			else if (pdfWriter.getPDFXConformance() == PdfWriter.PDFA1B)
+			else if (pdfaConformance == PdfaConformanceEnum.PDFA_1B)
 			{
 				xmp.setProperty(XMPConst.NS_PDFA_ID, PDFA_PART, PDFA_PART_1);
 				xmp.setProperty(XMPConst.NS_PDFA_ID, PDFA_CONFORMANCE, PDFA_CONFORMANCE_B);

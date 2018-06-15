@@ -733,7 +733,8 @@ public class JRPdfExporter extends JRAbstractExporter<PdfReportConfiguration, Pd
 			{
 				if (PdfXmpCreator.supported())
 				{
-					byte[] metadata = PdfXmpCreator.createXmpMetadata(pdfWriter);
+					//TODO is this still needed?  see https://community.jaspersoft.com/jasperreports-library/issues/5061
+					byte[] metadata = PdfXmpCreator.createXmpMetadata(pdfWriter, pdfaConformance);
 					pdfWriter.setXmpMetadata(metadata);
 				}
 				else
