@@ -26,7 +26,6 @@ import com.itextpdf.text.pdf.PdfContentByte;
 import com.itextpdf.text.pdf.PdfDictionary;
 import com.itextpdf.text.pdf.PdfName;
 import com.itextpdf.text.pdf.PdfNumber;
-import com.itextpdf.text.pdf.PdfObject;
 import com.itextpdf.text.pdf.PdfString;
 import com.itextpdf.text.pdf.PdfStructureElement;
 import com.itextpdf.text.pdf.PdfStructureTreeRoot;
@@ -561,18 +560,6 @@ public class JRPdfExporterTagHelper
 //			PdfStructureElement textTag = new PdfStructureElement(parentTag, PdfName.TEXT);
 			PdfStructureElement textTag = new PdfStructureElement(tagStack.peek(), isHyperlink ? PdfName.LINK : PdfName.TEXT);
 			pdfContentByte.beginMarkedContentSequence(textTag);
-		}
-	}
-
-	protected void startText(String text, boolean isHyperlink)
-	{
-		if (isTagged)
-		{
-			PdfDictionary markedContentProps = new PdfDictionary();
-			markedContentProps.put(PdfName.ACTUALTEXT, new PdfString(text, PdfObject.TEXT_UNICODE));
-			PdfStructureElement textTag = new PdfStructureElement(tagStack.peek(), isHyperlink ? PdfName.LINK : PdfName.TEXT);
-			// the following method is part of the patched iText
-			pdfContentByte.beginMarkedContentSequence(textTag, markedContentProps);
 		}
 	}
 
